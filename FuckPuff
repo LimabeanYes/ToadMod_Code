@@ -1,0 +1,10 @@
+void dmg_kb(GOBJ* gobj) {
+	FighterData* fd = gobj->userdata;
+	if (!((fd->state_id >= ASID_CATCH && fd->state_id <= ASID_BARRELCANNONWAIT) || //avoid certain icky states
+		(fd->state_id >= ASID_DEADDOWN && fd->state_id <= ASID_REBIRTHWAIT))) {
+		int rand = HSD_Randi(1);
+		if (rand == 1) {
+			Fighter_EnterSpecialFall(gobj, 1, 0, 1, 1.1, 20);
+		}
+	}
+}
