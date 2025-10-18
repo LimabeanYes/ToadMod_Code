@@ -10,6 +10,10 @@ void dmg_kb(GOBJ* gobj) {
 			Fighter_EnterSpecialFall(gobj, 1, 0, 1, 1.1, 20);
 		}
 	}
+	
+	if (HSD_Randi((int)(fd->dmg.percent*0.5)) == 1) {
+		Fighter_GiveDamage(fd, 5);
+	}
 }
 
 void onFrame(GOBJ* gobj) {
